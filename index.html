@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Temporizadores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="site-header">
+      <h1>Temporizadores</h1>
+    </header>
+
+    <section class="controls">
+      <input id="timer-name" placeholder="Nombre (opcional)" maxlength="30">
+      <input id="timer-min" type="number" min="0" placeholder="min" value="1">
+      <input id="timer-sec" type="number" min="0" max="59" placeholder="sec" value="0">
+      <button id="add-timer">Añadir</button>
+    </section>
+
+    <section id="timers" class="timers"></section>
+    <footer class="note">Diseño oscuro y minimalista — creado por ti</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
