@@ -72,6 +72,23 @@
   }
 
   function playBeep(){
+    const audioEl = document.getElementById('alarm-sound')
+    if(audioEl && audioEl.src){
+      try{
+        audioEl.currentTime = 0
+        audioEl.play().catch(()=>{
+          // fallback to oscillator if playback blocked
+          const ctx = new (window.AudioContext || window.webkitAudioContext)()
+          const o = ctx.createOscillator()
+          const g = ctx.createGain()
+          o.type='sine'; o.frequency.value = 880
+          g.gain.value = 0.05
+          o.connect(g); g.connect(ctx.destination); o.start();
+          setTimeout(()=>{o.stop(); ctx.close()},400)
+        })
+      }catch(e){/* ignore */}
+      return
+    }
     try{
       const ctx = new (window.AudioContext || window.webkitAudioContext)()
       const o = ctx.createOscillator()
@@ -132,6 +149,22 @@
     nameInput.value=''
     minInput.value='1'
     secInput.value='0'
+  })
+
+  // botones de incremento/decremento para los segmentos de tiempo
+  document.querySelectorAll('.seg-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = document.getElementById(btn.dataset.target)
+      if(!target) return
+      const step = btn.classList.contains('seg-up') ? 1 : -1
+      let v = parseInt(target.value||0,10) + step
+      if(target.id === 'timer-sec'){
+        if(v < 0) v = 59
+        if(v > 59) v = 0
+      }
+      if(v < 0) v = 0
+      target.value = v
+    })
   })
 
   // starter example

@@ -14,8 +14,21 @@
 
     <section class="controls">
       <input id="timer-name" placeholder="Nombre (opcional)" maxlength="30">
-      <input id="timer-min" type="number" min="0" placeholder="min" value="1">
-      <input id="timer-sec" type="number" min="0" max="59" placeholder="sec" value="0">
+
+      <div class="time-input" aria-label="Seleccionar tiempo">
+        <div class="seg">
+          <button class="seg-btn seg-up" data-target="timer-min" aria-hidden="true">▲</button>
+          <input id="timer-min" type="number" min="0" value="1" class="time-seg" aria-label="Minutos">
+          <button class="seg-btn seg-down" data-target="timer-min" aria-hidden="true">▼</button>
+        </div>
+        <div class="colon">:</div>
+        <div class="seg">
+          <button class="seg-btn seg-up" data-target="timer-sec" aria-hidden="true">▲</button>
+          <input id="timer-sec" type="number" min="0" max="59" value="0" class="time-seg" aria-label="Segundos">
+          <button class="seg-btn seg-down" data-target="timer-sec" aria-hidden="true">▼</button>
+        </div>
+      </div>
+
       <button id="add-timer">Añadir</button>
     </section>
 
@@ -23,6 +36,7 @@
     <footer class="note">Diseño oscuro y minimalista — creado por ti</footer>
   </main>
 
+  <audio id="alarm-sound" src="sound.mp3" preload="auto"></audio>
   <script src="app.js"></script>
 </body>
 </html>

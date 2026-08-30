@@ -22,9 +22,18 @@ body{
   max-width:95vw;
 }
 .site-header h1{margin:0 0 16px 0;font-weight:600}
-.controls{display:flex;gap:8px;align-items:center;margin-bottom:18px}
+#controls{display:block}
+.controls{display:flex;gap:12px;align-items:center;margin-bottom:18px}
 .controls input[type=number]{width:72px;padding:10px;border-radius:8px;border:1px solid transparent;background:rgba(255,255,255,0.03);color:inherit}
 .controls input[type=text],.controls input[type=number],.controls input{padding:10px;border-radius:8px;border:1px solid transparent;background:rgba(255,255,255,0.03);color:inherit}
+
+.time-input{display:flex;align-items:center;gap:8px}
+.time-seg{width:72px;font-size:18px;text-align:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:inherit}
+.seg{display:flex;flex-direction:column;align-items:center}
+.seg-btn{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:2px 6px;font-size:12px}
+.seg-btn:active{transform:translateY(1px)}
+.colon{font-size:20px;font-weight:700;color:var(--muted);padding:0 4px}
+
 #add-timer{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#071018;font-weight:600;cursor:pointer}
 .timers{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .timer{background:var(--card);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:8px}
